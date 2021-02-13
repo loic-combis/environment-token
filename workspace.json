@@ -1,10 +1,319 @@
 {
-  
-  
   "version": 2,
-  
-  "projects": {},
+  "projects": {
+    "first-app": {
+      "projectType": "application",
+      "root": "apps/first-app",
+      "sourceRoot": "apps/first-app/src",
+      "prefix": "environment-token",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/first-app",
+            "index": "apps/first-app/src/index.html",
+            "main": "apps/first-app/src/main.ts",
+            "polyfills": "apps/first-app/src/polyfills.ts",
+            "tsConfig": "apps/first-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/first-app/src/favicon.ico",
+              "apps/first-app/src/assets"
+            ],
+            "styles": [
+              "apps/first-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/first-app/src/environments/environment.ts",
+                  "with": "apps/first-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "first-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "first-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "first-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/first-app/src/**/*.ts",
+              "apps/first-app/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/first-app"
+          ],
+          "options": {
+            "jestConfig": "apps/first-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "first-app-e2e": {
+      "root": "apps/first-app-e2e",
+      "sourceRoot": "apps/first-app-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/first-app-e2e/cypress.json",
+            "tsConfig": "apps/first-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "first-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "first-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/first-app-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "second-app": {
+      "projectType": "application",
+      "root": "apps/second-app",
+      "sourceRoot": "apps/second-app/src",
+      "prefix": "environment-token",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/second-app",
+            "index": "apps/second-app/src/index.html",
+            "main": "apps/second-app/src/main.ts",
+            "polyfills": "apps/second-app/src/polyfills.ts",
+            "tsConfig": "apps/second-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/second-app/src/favicon.ico",
+              "apps/second-app/src/assets"
+            ],
+            "styles": [
+              "apps/second-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/second-app/src/environments/environment.ts",
+                  "with": "apps/second-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "second-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "second-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "second-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/second-app/src/**/*.ts",
+              "apps/second-app/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/second-app"
+          ],
+          "options": {
+            "jestConfig": "apps/second-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "second-app-e2e": {
+      "root": "apps/second-app-e2e",
+      "sourceRoot": "apps/second-app-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/second-app-e2e/cypress.json",
+            "tsConfig": "apps/second-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "second-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "second-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/second-app-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "home": {
+      "projectType": "library",
+      "root": "libs/home",
+      "sourceRoot": "libs/home/src",
+      "prefix": "environment-token",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/home/src/**/*.ts",
+              "libs/home/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/home"
+          ],
+          "options": {
+            "jestConfig": "libs/home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "environment": {
+      "projectType": "library",
+      "root": "libs/environment",
+      "sourceRoot": "libs/environment/src",
+      "prefix": "environment-token",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/environment/src/**/*.ts",
+              "libs/environment/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/environment"
+          ],
+          "options": {
+            "jestConfig": "libs/environment/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "first-app"
 }

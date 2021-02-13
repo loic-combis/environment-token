@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@environment-token/home": ["libs/home/src/index.ts"],
+      "@environment-token/environment": ["libs/environment/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
